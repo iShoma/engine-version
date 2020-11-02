@@ -10,6 +10,5 @@ describe('sum tests', () => {
     const b = Math.floor(Math.random() * 100);
 
     expect(sum(a, b)).toBe(sum(b, a));
-
   });
 });
