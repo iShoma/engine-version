@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest --runInBand",
-    "lint": "eslint **/*.ts",
+    "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint **/*.ts --fix"
   },
   "repository": {

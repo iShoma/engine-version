@@ -7,4 +7,3 @@ interface PackageJSON {
 }
 
 export const getParrentPackageJSON = (): Promise<PackageJSON> => import(path.resolve(process.cwd(), 'package.json'));
- 
