@@ -3,9 +3,13 @@ module.exports = {
     '<rootDir>/src',
   ],
   testMatch: [
-    '**/?(*.)+(test).+(ts|js)',
+    '**/__tests__/?(*.)+(test).+(ts|js)',
   ],
   transform: {
     '^.+\\.(ts|js)$': 'ts-jest',
   },
+  moduleFileExtensions: [
+    'ts',
+    'js',
+  ],
 };

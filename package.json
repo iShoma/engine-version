@@ -6,7 +6,7 @@
     "engine-version": "lib/index.js"
   },
   "files": [
-    "./lib/index.js"
+    "./lib/"
   ],
   "scripts": {
     "build": "tsc",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/iShoma/engine-version#readme",
   "devDependencies": {
     "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
     "eslint": "^7.12.1",
