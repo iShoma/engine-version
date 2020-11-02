@@ -5,6 +5,10 @@
         "@typescript-eslint"
     ],
     "env": {
-        "node": true
+        "node": true,
+        "jest/globals": true
+    },
+    "rules": {
+        "import/prefer-default-export": "off"
     }
 }
