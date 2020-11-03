@@ -1,3 +1,10 @@
-import { verify } from './verify';
+/* eslint-disable no-console */
+import { verifyEngines } from './verifyEngines';
 
-verify().then();
+verifyEngines()
+  .then()
+  .catch((errors: string[]) => {
+    errors.forEach((err) => {
+      console.error(err);
+    });
+  });

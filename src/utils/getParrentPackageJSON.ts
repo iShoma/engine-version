@@ -1,6 +1,6 @@
 import path from 'path';
 
-interface PackageJSON {
+export interface PackageJSON {
   engines?: {
     [key: string]: string;
   }
