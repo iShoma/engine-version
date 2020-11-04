@@ -7,9 +7,7 @@ const processSpy = jest.spyOn(global.process, 'exit').mockImplementation();
 
 describe('index test', () => {
   beforeEach(() => {
-    logSpy.mockReset();
-    processSpy.mockReset();
-    (verifyEngines as jest.Mock).mockReset();
+    jest.resetAllMocks();
   });
 
   it('all ok', async () => {
@@ -21,11 +19,13 @@ describe('index test', () => {
     (verifyEngines as jest.Mock).mockRejectedValue(['error']);
     await run();
     expect(logSpy).toHaveBeenCalledTimes(1);
+    expect(processSpy).toHaveBeenCalledWith(1);
   });
 
   it('on 2 errors', async () => {
     (verifyEngines as jest.Mock).mockRejectedValue(['error', 'error']);
     await run();
     expect(logSpy).toHaveBeenCalledTimes(2);
+    expect(processSpy).toHaveBeenCalledWith(1);
   });
 });

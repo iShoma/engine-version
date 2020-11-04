@@ -16,4 +16,15 @@ module.exports = {
     'src/**/*.ts',
   ],
   collectCoverage: true,
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/errorsGenerators.ts',
+  ],
 };
