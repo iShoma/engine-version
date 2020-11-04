@@ -12,4 +12,8 @@ module.exports = {
     'ts',
     'js',
   ],
+  collectCoverageFrom: [
+    'src/**/*.ts',
+  ],
+  collectCoverage: true,
 };

@@ -1,10 +1,15 @@
 /* eslint-disable no-console */
 import { verifyEngines } from './verifyEngines';
 
-verifyEngines()
-  .then()
-  .catch((errors: string[]) => {
-    errors.forEach((err) => {
+export const run = async () => {
+  try {
+    await verifyEngines();
+  } catch (errors) {
+    errors.forEach((err: string) => {
       console.error(err);
     });
-  });
+    process.exit(1);
+  }
+};
+
+run();

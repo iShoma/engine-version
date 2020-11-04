@@ -1,5 +1,3 @@
-import { verify } from "crypto";
-
 import { verifyEngines } from '../verifyEngines';
 import { getParrentPackageJSON } from '../utils';
 import { packageJsonNotFound } from '../errorsGenerators';
@@ -13,6 +11,15 @@ describe('verify tests', () => {
       .then()
       .catch((errors) => {
         expect(JSON.stringify(errors)).toBe(JSON.stringify([packageJsonNotFound]));
+      });
+  });
+
+  it('all ok', async () => {
+    (getParrentPackageJSON as jest.Mock).mockResolvedValue({});
+    verifyEngines()
+      .then()
+      .catch(() => {
+        expect(true).toBeFalsy();
       });
   });
 });
