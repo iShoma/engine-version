@@ -1,5 +1,5 @@
 {
-    "extends": "airbnb-base",
+    "extends": ["plugin:@typescript-eslint/recommended", "airbnb-base"],
     "parser": "@typescript-eslint/parser",
     "plugins": [
         "jest",
@@ -20,7 +20,9 @@
               "ts": "never",
               "tsx": "never"
             }
-         ]
+         ],
+         "no-shadow": "off",
+         "@typescript-eslint/no-shadow": ["error"]
     },
     "settings": {
         "import/resolver": {

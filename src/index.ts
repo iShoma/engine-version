@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { verifyEngines } from './verifyEngines';
 
-export const run = async () => {
+export const run = async (): Promise<void> => {
   try {
     await verifyEngines();
   } catch (errors) {
