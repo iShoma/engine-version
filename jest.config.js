@@ -14,6 +14,7 @@ module.exports = {
   ],
   collectCoverageFrom: [
     'src/**/*.ts',
+    'src/*.ts',
   ],
   collectCoverage: true,
   coverageThreshold: {

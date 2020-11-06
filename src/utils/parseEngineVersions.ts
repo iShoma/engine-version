@@ -1,4 +1,4 @@
-import semver, { SemVer } from "semver";
+import semver, { SemVer } from 'semver';
 
 export enum VersionMatchType {
   Any = '*',

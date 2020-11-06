@@ -1,10 +1,20 @@
-import { getParrentPackageJSON, PackageJSON, getInstalledLibVersion } from './utils';
-import { packageJsonNotFound, libNotInstalled } from './errorsGenerators';
+import {
+  getParrentPackageJSON,
+  PackageJSON,
+  getInstalledLibVersion,
+  versionCheck,
+  parseEngineVersions,
+} from './utils';
+import {
+  packageJsonNotFound,
+  libNotInstalled,
+  wrongVersion,
+  invalidVersionSpecified,
+} from './errorsGenerators';
 
 interface Engine {
   libName: string;
   libVersions: string;
-  installedVersion: string | null;
 }
 
 export const verifyEngines = async (): Promise<void> => {
@@ -29,15 +39,28 @@ export const verifyEngines = async (): Promise<void> => {
   const engines: Engine[] = Object.entries(packageJSON.engines).map((engineTuple) => ({
     libName: engineTuple[0],
     libVersions: engineTuple[1],
-    installedVersion: null,
   }));
 
-  await Promise.all(engines.map(async (engine, i) => {
-    const { libName } = engine;
+  await Promise.all(engines.map(async (engine) => {
+    const { libName, libVersions } = engine;
+    let installedVersion;
+    let parsedEngineVersions;
+
     try {
-      engines[i].installedVersion = await getInstalledLibVersion(libName);
+      installedVersion = await getInstalledLibVersion(libName);
     } catch (_) {
       errors.push(libNotInstalled(libName));
+      return;
+    }
+
+    try {
+      parsedEngineVersions = parseEngineVersions(libVersions);
+    } catch (_) {
+      errors.push(invalidVersionSpecified(libName));
+      return;
+    }
+    if (!versionCheck(parsedEngineVersions, installedVersion)) {
+      errors.push(wrongVersion(libName));
     }
   }));
 

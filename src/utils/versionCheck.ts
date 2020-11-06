@@ -1,4 +1,3 @@
-import { versions } from 'process';
 import semver from 'semver';
 import { ParsedVersion, VersionMatchType } from './parseEngineVersions';
 
