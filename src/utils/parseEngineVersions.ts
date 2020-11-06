@@ -1,3 +1,5 @@
+import semver, { SemVer } from "semver";
+
 export enum VersionMatchType {
   Any = '*',
   More = '>',
@@ -14,7 +16,8 @@ export interface ParsedVersion {
 }
 
 const versionWithMatchTypeRegex = /^(>|>=|<|<=|~)?(\d+\.)?(\d+\.)?(\*|\d+)(-.*)?$/;
-const versionOnlyRegex = /(\d+\.)?(\d+\.)?(\*|\d+)(-.*)?$/;
+const versionOnlyRegex = /(\d+\.)?(\d+\.)?(\*|\d+)/;
+const versionWithouMatchPrefix = /(\d+\.)?(\d+\.)?(\*|\d+)(-.*)?$/;
 
 export const parseEngineVersions = (versionsRaw: string): ParsedVersion[] => versionsRaw.split(' ')
   .reduce<ParsedVersion[]>((acc, versionRaw) => {
@@ -36,8 +39,9 @@ export const parseEngineVersions = (versionsRaw: string): ParsedVersion[] => ver
     }
 
     let versionMathType: VersionMatchType;
-    const version = ((versionOnlyRegex.exec(versionRaw) as unknown) as VersionMatchType[])[0];
-    const versionMatchPrefix = versionRaw.replace(versionOnlyRegex, '');
+    const versionStr = ((versionOnlyRegex.exec(versionRaw) as unknown) as VersionMatchType[])[0];
+    const version = ((semver.coerce(versionStr) as unknown) as SemVer).version as string;
+    const versionMatchPrefix = versionRaw.replace(versionWithouMatchPrefix, '');
 
     switch (versionMatchPrefix) {
       case VersionMatchType.About: {

@@ -30,6 +30,15 @@ describe('parse engine version', () => {
     }
   });
 
+  it('version with error 3', () => {
+    try {
+      parseEngineVersions('<');
+      expect(true).toBeFalsy();
+    } catch (_) {
+      expect(true).toBeTruthy();
+    }
+  });
+
   it('version regex test', () => {
     const versions = [
       '1.1.1',
@@ -42,6 +51,7 @@ describe('parse engine version', () => {
       '8.8',
       '>9',
       '>10.10',
+      '~11.11.11-beta12',
       '*',
     ].join(' ');
 
@@ -72,20 +82,24 @@ describe('parse engine version', () => {
           matchType: VersionMatchType.About,
         },
         {
-          version: '7',
+          version: '7.0.0',
           matchType: VersionMatchType.Strict,
         },
         {
-          version: '8.8',
+          version: '8.8.0',
           matchType: VersionMatchType.Strict,
         },
         {
-          version: '9',
+          version: '9.0.0',
           matchType: VersionMatchType.More,
         },
         {
-          version: '10.10',
+          version: '10.10.0',
           matchType: VersionMatchType.More,
+        },
+        {
+          version: '11.11.11',
+          matchType: VersionMatchType.About,
         },
         {
           version: '*',

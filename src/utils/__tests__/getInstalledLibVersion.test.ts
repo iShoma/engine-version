@@ -8,7 +8,7 @@ jest.mock('child_process');
 // @ts-ignore
 childProcess.exec = jest.fn();
 
-describe('get installed libs versions', () => {
+describe('installed libs versions', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });

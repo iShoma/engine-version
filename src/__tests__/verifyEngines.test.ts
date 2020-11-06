@@ -5,7 +5,7 @@ import { packageJsonNotFound, libNotInstalled } from '../errorsGenerators';
 jest.mock('../utils');
 
 describe('verify tests', () => {
-  it('should return error if package.json not found', async () => {
+  it('package.json not found', async () => {
     (getParrentPackageJSON as jest.Mock).mockRejectedValueOnce(packageJsonNotFound);
     try {
       await verifyEngines();
