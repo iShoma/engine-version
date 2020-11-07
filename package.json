@@ -7,10 +7,11 @@
     "engine-version": "lib/index.js"
   },
   "files": [
-    "./lib/"
+    "lib"
   ],
   "scripts": {
-    "build": "npm run clear && npm run tsc",
+    "build": "tsc",
+    "prebuild": "rm -rf lib",
     "tsc": "tsc",
     "test": "jest --runInBand --no-cache",
     "test:dev": "jest --runInBand --watchAll --verbose",
