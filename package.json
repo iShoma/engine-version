@@ -1,7 +1,8 @@
 {
   "name": "engine-version",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Check and require specific installed versions of instruments for developing",
+  "keywords": [],
   "bin": {
     "engine-version": "lib/index.js"
   },
@@ -9,19 +10,20 @@
     "./lib/"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "npm run clear && npm run tsc",
+    "tsc": "tsc",
     "test": "jest --runInBand --no-cache",
     "test:dev": "jest --runInBand --watchAll --verbose",
     "ts:check": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint **/*.ts --fix",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "clear": "rm -rf lib"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iShoma/engine-version.git"
   },
-  "keywords": [],
   "author": "Shamil Makhmutov <my@ishoma.com> (https://github.com/ishoma)",
   "license": "MIT",
   "bugs": {
@@ -44,6 +46,7 @@
     "typescript": "^4.0.5"
   },
   "dependencies": {
+    "chalk": "^4.1.0",
     "find-versions": "^3.2.0",
     "semver": "^7.3.2"
   }
