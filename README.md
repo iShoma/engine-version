@@ -18,7 +18,7 @@ npm i -D engine-version
   }
 }
 ```
-* Create ['pre' or 'post' script](https://docs.npmjs.com/cli/v6/using-npm/scripts#pre--post-scripts) in your `package.json`:
+* Create ['pre' or 'post' scripts](https://docs.npmjs.com/cli/v6/using-npm/scripts#pre--post-scripts) in your `package.json`:
 ```
 {
   "scripts": {
