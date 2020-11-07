@@ -14,7 +14,8 @@ npm i -D engine-version
     "npm": "~7",
     "git": "*",
     "git": "*",
-    "pm2": "*"
+    "pm2": "*",
+    "mysql": "*"
   }
 }
 ```
