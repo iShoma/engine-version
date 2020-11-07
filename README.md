@@ -1,3 +1,4 @@
+[![codecov](https://codecov.io/gh/iShoma/engine-version/branch/master/graph/badge.svg)](https://codecov.io/gh/iShoma/engine-version)
 [![dependencies Status](https://david-dm.org/ishoma/engine-version.svg)](https://david-dm.org/ishoma/engine-version)
 
 # Engine-Version
