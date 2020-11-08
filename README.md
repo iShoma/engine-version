@@ -1,5 +1,5 @@
-![build](https://github.com/iShoma/engine-version/workflows/build/badge.svg)
-![Node.js Package](https://github.com/iShoma/engine-version/workflows/Node.js%20Package/badge.svg)
+[![build](https://github.com/iShoma/engine-version/workflows/build/badge.svg)](https://github.com/iShoma/engine-version/actions?query=workflow%3Abuild)
+[![publish](https://github.com/iShoma/engine-version/workflows/publish/badge.svg)](https://github.com/iShoma/engine-version/actions?query=workflow%3Apublish)
 [![codecov](https://codecov.io/gh/iShoma/engine-version/branch/main/graph/badge.svg?token=QSVL1MS0WV)](https://codecov.io/gh/iShoma/engine-version)
 [![dependencies Status](https://david-dm.org/ishoma/engine-version.svg)](https://david-dm.org/ishoma/engine-version)
 [![devDependencies Status](https://david-dm.org/ishoma/engine-version/dev-status.svg)](https://david-dm.org/ishoma/engine-version?type=dev)
