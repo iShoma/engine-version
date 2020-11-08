@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES3",
+        "module": "CommonJS",
+        "strict": true,
+        "outDir": "./lib/",
+        "esModuleInterop": true,
+        "moduleResolution": "node"
+    },
+    "include": ["src/**/*"],
+    "exclude": [
+        "node_modules",
+        "**/*.test.ts"
+    ]
+}

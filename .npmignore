@@ -103,5 +103,10 @@ dist
 # TernJS port file
 .tern-port
 
-# Builds
-lib
+.github
+.husky
+.eslintrc
+.gitignore
+jest.config.js
+coverage
+tsconfig
