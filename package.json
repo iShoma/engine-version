@@ -18,7 +18,7 @@
     "ts:check": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint **/*.ts --fix",
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "clear": "rm -rf lib"
   },
   "repository": {
