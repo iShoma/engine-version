@@ -21,7 +21,8 @@ jobs:
       - run: npm run lint
       - run: npm run ts:check
      
-  build:
+  build and publish:
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,24 +31,6 @@ jobs:
           node-version: 14
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: lib/
-
-  publish-npm:
-    needs: [test, build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
-      - uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: lib/
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
