@@ -21,7 +21,7 @@ jobs:
       - run: npm run lint
       - run: npm run ts:check
      
-  build and publish:
+  build_and_publish:
     needs: [test]
     runs-on: ubuntu-latest
     steps:
